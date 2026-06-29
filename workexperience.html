@@ -1,0 +1,218 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ADAM | EXPERIENCE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c6c6c6",
+                        "outline-variant": "#cfc4c5",
+                        "inverse-on-surface": "#f5f0ec",
+                        "error-container": "#ffdad6",
+                        "deep-ink": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fef8f4",
+                        "on-primary-container": "#848484",
+                        "secondary": "#615e5c",
+                        "tertiary-container": "#1b1b1b",
+                        "surface-container": "#f2ede9",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-container": "#1b1b1b",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed": "#1d1b1a",
+                        "surface-container-highest": "#e6e2de",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface-dim": "#ded9d5",
+                        "secondary-fixed": "#e7e1df",
+                        "surface-container-high": "#ece7e3",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#cac5c4",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-tint": "#5e5e5e",
+                        "secondary-container": "#e7e1df",
+                        "tertiary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f8f3ef",
+                        "outline": "#7e7576",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000000",
+                        "on-secondary-container": "#676462",
+                        "surface": "#fef8f4",
+                        "off-white-bg": "#FCF6F4",
+                        "on-surface-variant": "#4c4546",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1d1b19",
+                        "tertiary-fixed": "#e2e2e2",
+                        "inverse-surface": "#32302e",
+                        "on-secondary-fixed-variant": "#494645",
+                        "on-surface": "#1d1b19",
+                        "surface-variant": "#e6e2de",
+                        "background": "#000000"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "edge-margin": "2rem",
+                        "section-gap": "4rem",
+                        "inner-gutter": "1.5rem",
+                        "edge-margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Karla"],
+                        "body-lg": ["Karla"],
+                        "label-caps": ["Karla"],
+                        "nav-item": ["Karla"],
+                        "display-lg": ["Karla"],
+                        "body-md": ["Karla"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                        "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "nav-item": ["18px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["84px", {"lineHeight": "1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        html {
+            scroll-snap-type: y mandatory;
+        }
+        body {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+        /* High-fidelity glassmorphism for dark theme */
+        .glass-card {
+            background: rgba(20, 20, 20, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-white selection:text-black transition-colors duration-500 overflow-x-hidden">
+<!-- Fixed Background Elements -->
+<div class="fixed inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+<h1 class="font-display-lg text-[18vw] leading-none text-white/5 font-black uppercase tracking-tighter select-none" id="bg-text" style="transform: translateY(24.4px);">EXPERIENCE</h1>
+</div>
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-edge-margin-mobile md:px-edge-margin py-6 pointer-events-none">
+<div class="pointer-events-auto">
+<a class="text-xl md:text-2xl text-white hover:opacity-70 transition-all duration-300 font-bold italic tracking-tighter" href="homepage.html" style="font-family: Orbitron, sans-serif;">ADAM</a>
+</div>
+<!-- Centered Back Arrow -->
+
+<div class="pointer-events-auto flex items-center gap-4">
+<button class="material-symbols-outlined text-white text-2xl hover:scale-110 transition-all duration-300" data-icon="contrast" id="theme-toggle"></button>
+</div>
+</header>
+<!-- Side Navigation (Left: Socials) -->
+<nav class="fixed left-0 top-0 h-full hidden md:flex flex-col items-center gap-6 pb-12 z-40 px-6 border-white/10 justify-center"><div class="absolute left-1/2 -translate-x-1/2 w-px h-full bg-white/10 z-0"></div><div class="flex flex-col gap-8 bg-black py-8 z-10"><a class="text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300" href="#"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a><a class="text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300" href="#"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-3-7-3"></path></svg></a><a class="text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300" href="#"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a><a class="text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300" href="#"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a><a class="text-white/60 hover:text-white hover:translate-x-1 transition-all duration-300" href="#"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a></div></nav>
+<!-- Scroll Container -->
+<main class="relative z-10 w-full h-screen overflow-y-auto no-scrollbar" id="main-scroll">
+<!-- Zoho Corporation -->
+<section class="min-h-screen w-full flex items-center justify-center px-edge-margin-mobile md:px-edge-margin py-20">
+<div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-16"><div class="glass-card p-8 rounded-xl flex flex-col justify-between transition-all duration-500 lg:col-span-5 md:p-12 hover:scale-105 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"><div><span class="font-label-caps text-label-caps text-white/60 block mb-4 uppercase">MAY 2025 — JUNE 2025</span><h2 class="font-display-lg text-3xl md:text-5xl text-white leading-tight mb-2">Full Stack Developer intern</h2><h3 class="font-body-lg text-body-lg text-white/60 italic">BA TECHNOLOGY&nbsp;</h3></div><div class="mt-8"><span class="material-symbols-outlined text-white/20 text-5xl" data-icon="corporate_fare"></span></div></div><div class="glass-card p-8 md:p-12 rounded-xl flex flex-col justify-center min-h-[400px] transition-all duration-500 hover:scale-105 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] lg:col-span-7" style="min-height: 550px;"><p class="font-body-md text-lg text-white/80 leading-relaxed mb-8">Contributed to the development of modern full-stack web applications by building intuitive frontend interfaces and implementing backend functionality. Developed responsive, user-centric web experiences with a strong focus on performance, usability, and clean design. Collaborated with the development team to solve technical challenges, optimize application workflows, and deliver reliable, high-quality solutions that supported project objectives.
+
+
+</p><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">JavaScript</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">Node.js</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">React.js</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">Figma</span>
+    <span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">HTML/CSS</span></div></div></div>
+</section>
+<!-- Lumina Digital Studio -->
+<section class="min-h-screen w-full flex items-center justify-center px-edge-margin-mobile md:px-edge-margin py-20">
+<div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 items-center gap-16"><div class="glass-card p-8 rounded-xl flex flex-col justify-between transition-all duration-500 lg:col-span-5 md:p-12 hover:scale-105 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"><div><span class="font-label-caps text-label-caps text-white/60 block mb-4 uppercase">june 2026 — july 2026</span><h2 class="font-display-lg text-3xl md:text-5xl text-white leading-tight mb-2">AI Developer Intern&nbsp;</h2><h3 class="font-body-lg text-body-lg text-white/60 italic">PROVAHAN INFOTECH PVT LMT&nbsp;</h3></div><div class="mt-8"><span class="material-symbols-outlined text-white/20 text-5xl" data-icon="work"></span></div></div><div class="glass-card p-8 md:p-12 rounded-xl flex flex-col justify-center min-h-[400px] transition-all duration-500 hover:scale-105 hover:border-white/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] lg:col-span-7" style="min-height: 550px;"><p class="font-body-md text-lg text-white/80 leading-relaxed mb-8">Developed PV7 Assistant, a production-ready RAG-based AI chatbot to automate customer query resolution for the company's website. Integrated the Gemini API with Retrieval-Augmented Generation (RAG) and advanced prompt engineering to deliver accurate, context-aware responses. Designed the system to retrieve relevant knowledge efficiently, improving response quality and reliability. Implemented robust security measures, including prompt injection detection and mitigation, to protect the application from malicious inputs. Added sensitive data masking to prevent Personally Identifiable Information (PII), such as email addresses and phone numbers, from being exposed to the LLM. Optimized chatbot performance, scalability, and user experience, delivering a secure and intelligent AI-powered customer support solution.
+
+</p><div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">Prompt Engineering</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">RAG</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">LLM Security</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">Gemini API</span><span class="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs font-medium text-white uppercase tracking-wider">Python</span></div></div></div>
+
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainContent = document.getElementById('main-scroll');
+        const bgText = document.getElementById('bg-text');
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Custom scroll parallax for background text
+        mainContent.addEventListener('scroll', () => {
+            const scrolled = mainContent.scrollTop;
+            if (bgText) {
+                bgText.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+
+        // Toggle Theme
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            if(isDark) {
+                document.body.style.backgroundColor = '#000000';
+                document.body.style.color = '#ffffff';
+            } else {
+                document.body.style.backgroundColor = '#f8f3ef';
+                document.body.style.color = '#1d1b19';
+            }
+        });
+
+        // Smooth transition for back button
+        const backBtn = document.querySelector('a[href="homepage.html"]');
+        if(backBtn) {
+            backBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.body.style.opacity = '0';
+                document.body.style.transition = 'opacity 0.4s ease';
+                setTimeout(() => {
+                    window.location.href = backBtn.getAttribute('href');
+                }, 400);
+            });
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

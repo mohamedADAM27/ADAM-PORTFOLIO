@@ -1,0 +1,1362 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>ADAM | PROJECTS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c6c6c6",
+                        "outline-variant": "#cfc4c5",
+                        "inverse-on-surface": "#f5f0ec",
+                        "error-container": "#ffdad6",
+                        "deep-ink": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fef8f4",
+                        "on-primary-container": "#848484",
+                        "secondary": "#615e5c",
+                        "tertiary-container": "#1b1b1b",
+                        "surface-container": "#f2ede9",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "primary-container": "#1b1b1b",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-secondary-fixed": "#1d1b1a",
+                        "surface-container-highest": "#e6e2de",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "surface-dim": "#ded9d5",
+                        "secondary-fixed": "#e7e1df",
+                        "surface-container-high": "#ece7e3",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#cac5c4",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-tint": "#5e5e5e",
+                        "secondary-container": "#e7e1df",
+                        "tertiary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f8f3ef",
+                        "outline": "#7e7576",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000000",
+                        "on-secondary-container": "#676462",
+                        "surface": "#fef8f4",
+                        "off-white-bg": "#FCF6F4",
+                        "on-surface-variant": "#4c4546",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1d1b19",
+                        "tertiary-fixed": "#e2e2e2",
+                        "inverse-surface": "#32302e",
+                        "on-secondary-fixed-variant": "#494645",
+                        "on-surface": "#1d1b19",
+                        "surface-variant": "#e6e2de",
+                        "background": "#fef8f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "edge-margin": "2rem",
+                        "section-gap": "4rem",
+                        "inner-gutter": "1.5rem",
+                        "edge-margin-mobile": "1rem"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Karla"],
+                        "body-lg": ["Karla"],
+                        "label-caps": ["Karla"],
+                        "nav-item": ["Karla"],
+                        "display-lg": ["Karla"],
+                        "body-md": ["Karla"],
+                        "logo": ["Orbitron"],
+                        "action": ["Orbitron"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["48px", {"lineHeight": "1.1", "fontWeight": "800"}],
+                        "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "nav-item": ["18px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "display-lg": ["84px", {"lineHeight": "1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .yinyang-rotation {
+            animation: rotate-center 20s linear infinite;
+        }
+
+        @keyframes rotate-center {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Auto-scroll Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .scroll-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 60s linear infinite;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            cursor: grab;
+        }
+        
+        .scroll-track::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+
+        .scroll-track.is-dragging {
+            cursor: grabbing;
+            animation-play-state: paused !important;
+            scroll-snap-type: none;
+        }
+
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+
+        .card-wrapper {
+            scroll-snap-align: center;
+        }
+
+        /* 3D Flip Effect */
+        .card-perspective {
+            perspective: 1200px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .card-inner.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #fef8f4;
+        }
+
+        .project-card-ui {
+            background-color: #fef8f4;
+            transition: background-color 0.4s ease;
+        }
+
+        .project-card-ui:hover {
+            background-color: #ffffff;
+        }
+
+        .bg-text {
+            user-select: none;
+            opacity: 0.1;
+        }
+
+        #carousel-container {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        #carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-on-primary font-body-md overflow-hidden bg-deep-ink">
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-edge-margin-mobile md:px-edge-margin py-4 bg-transparent">
+<a href="homepage.html" class="font-logo italic text-3xl text-on-primary cursor-pointer hover:opacity-70 transition-all duration-300 active:scale-95 font-black tracking-tighter uppercase block">ADAM</a>
+<div class="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+<button class="material-symbols-outlined text-on-primary text-4xl hover:opacity-70 transition-all duration-300 active:scale-95" data-icon="arrow_back" onclick="window.location.href='homepage.html'">
+            arrow_back
+        </button>
+</div>
+<div class="flex items-center gap-6"></div>
+</header>
+<!-- Background Decoration Text -->
+<div class="fixed inset-0 pointer-events-none z-0 flex flex-col items-center">
+<h1 class="font-display-lg text-[8vw] leading-none text-white opacity-5 uppercase font-extrabold tracking-tighter transition-transform duration-500 ease-out mt-12 text-center w-full" id="bg-work-text" style="font-size: 20px; opacity: 0.8; margin-top: 115px;">WORK</h1>
+<div class="flex flex-col items-center gap-4 mt-auto mb-32">
+<div class="flex gap-2">
+<div class="w-8 h-1 bg-white opacity-40 rounded-full"></div>
+<div class="w-2 h-1 bg-white opacity-10 rounded-full"></div>
+<div class="w-2 h-1 bg-white opacity-10 rounded-full"></div>
+</div>
+<span class="font-label-caps text-label-caps text-white opacity-20 tracking-widest uppercase">Swipe to Explore</span>
+</div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 min-h-screen flex flex-col justify-center items-center px-edge-margin-mobile md:px-edge-margin pt-32 pb-32">
+<div class="w-full overflow-hidden select-none" id="carousel-container">
+<!-- Project Carousel -->
+<div class="scroll-track gap-8 py-12" id="project-carousel" style="animation-play-state: running;">
+<!-- Projects will be injected by script below -->
+<div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">KryptoGiffy</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            This platform allows you to perform transactions via Blockchain by using Ethereum mainnet. Prerequisite: Web3.0 Wallet.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Blockchain / Web3</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Graphical Password Auth</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Users can set passwords using images and their sequence, implementing recaptcha-like human verification.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Security / UX</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Breach Checker</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            This website checks if your passwords or critical information has been leaked anywhere on the internet.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Cybersecurity / API</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Nexus AI</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Predictive analysis platform for real-time market trends using deep learning neural networks.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">AI / Machine Learning</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">EcoTrack</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Smart monitoring system for household energy consumption with real-time feedback and optimization.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">IoT / Sustainability</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Vanguard</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Automated vulnerability scanning tool integrated into CI/CD pipelines for secure deployments.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Security / DevOps</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Skyline Realty</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            A high-performance real estate portal with 3D walkthroughs and interactive city maps.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Frontend / UX</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Pulse Music</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Peer-to-peer music sharing platform with synchronized playback and live room features.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Web Audio / Social</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl is-flipped">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Hydra OS</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            A lightweight experimental operating system kernel focused on extreme concurrency and safety.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Systems / C++</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl is-flipped">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Zenith Portfolio</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            A minimalist design framework for modern creatives focusing on subtle motion and typography.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Design / Motion</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Quantum Pay</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Next-gen payment gateway utilizing post-quantum cryptography for transaction security.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Fintech / Encryption</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Aura Home</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Centralized hub for controlling heterogeneous smart home devices through a unified interface.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Smart Home / App</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">KryptoGiffy</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            This platform allows you to perform transactions via Blockchain by using Ethereum mainnet. Prerequisite: Web3.0 Wallet.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Blockchain / Web3</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Graphical Password Auth</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Users can set passwords using images and their sequence, implementing recaptcha-like human verification.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Security / UX</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Breach Checker</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            This website checks if your passwords or critical information has been leaked anywhere on the internet.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Cybersecurity / API</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Nexus AI</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Predictive analysis platform for real-time market trends using deep learning neural networks.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">AI / Machine Learning</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">EcoTrack</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Smart monitoring system for household energy consumption with real-time feedback and optimization.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">IoT / Sustainability</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Vanguard</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Automated vulnerability scanning tool integrated into CI/CD pipelines for secure deployments.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Security / DevOps</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Skyline Realty</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            A high-performance real estate portal with 3D walkthroughs and interactive city maps.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Frontend / UX</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Pulse Music</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Peer-to-peer music sharing platform with synchronized playback and live room features.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Web Audio / Social</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Hydra OS</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            A lightweight experimental operating system kernel focused on extreme concurrency and safety.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Systems / C++</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Zenith Portfolio</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            A minimalist design framework for modern creatives focusing on subtle motion and typography.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Design / Motion</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Quantum Pay</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Next-gen payment gateway utilizing post-quantum cryptography for transaction security.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Fintech / Encryption</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div><div class="card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer">
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">Aura Home</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            Centralized hub for controlling heterogeneous smart home devices through a unified interface.
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">Smart Home / App</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div></div>
+</div>
+</main>
+<!-- Footer Area -->
+<footer class="fixed bottom-0 left-0 w-full flex justify-between items-end p-edge-margin-mobile md:p-edge-margin z-50 pointer-events-none">
+<div class="pointer-events-auto flex flex-col gap-2">
+<div class="flex gap-4 font-label-caps text-label-caps text-on-primary">
+</div>
+</div>
+<div class="pointer-events-auto flex items-center gap-6 pb-2">
+<div class="flex gap-2 mr-4">
+<button class="material-symbols-outlined text-on-primary hover:opacity-100 opacity-40 transition-opacity cursor-pointer p-2 bg-on-primary/10 rounded-full" data-icon="chevron_left" id="prev-btn">chevron_left</button>
+<button class="material-symbols-outlined text-on-primary hover:opacity-100 opacity-40 transition-opacity cursor-pointer p-2 bg-on-primary/10 rounded-full" data-icon="chevron_right" id="next-btn">chevron_right</button>
+</div>
+</div>
+</footer>
+<!-- Center Interactive Background Decoration -->
+<div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-5">
+<div class="yinyang-rotation w-[819px] h-[819px] rounded-full border-2 border-white/20 transition-transform duration-700"></div>
+</div>
+<script>
+    const projectData = [
+        { title: "KryptoGiffy", category: "Blockchain / Web3", desc: "This platform allows you to perform transactions via Blockchain by using Ethereum mainnet. Prerequisite: Web3.0 Wallet." },
+        { title: "Graphical Password Auth", category: "Security / UX", desc: "Users can set passwords using images and their sequence, implementing recaptcha-like human verification." },
+        { title: "Breach Checker", category: "Cybersecurity / API", desc: "This website checks if your passwords or critical information has been leaked anywhere on the internet." },
+        { title: "Nexus AI", category: "AI / Machine Learning", desc: "Predictive analysis platform for real-time market trends using deep learning neural networks." },
+        { title: "EcoTrack", category: "IoT / Sustainability", desc: "Smart monitoring system for household energy consumption with real-time feedback and optimization." }
+    ];
+
+    const scrollContainer = document.getElementById('carousel-container');
+    const carousel = document.getElementById('project-carousel');
+    carousel.innerHTML = ''; // Clear hardcoded skeleton cards
+    
+    function createCard(project) {
+        const cardWrapper = document.createElement('div');
+        cardWrapper.className = "card-wrapper shrink-0 w-80 md:w-[28rem] h-[28rem] card-perspective cursor-pointer";
+        
+        cardWrapper.innerHTML = `
+            <div class="card-inner w-full h-full shadow-2xl">
+                <!-- Front Side -->
+                <div class="card-face project-card-ui p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full gap-8 text-deep-ink">
+                        <header>
+                            <h3 class="font-display-lg text-4xl font-bold tracking-tight mb-2 leading-tight">${project.title}</h3>
+                            <div class="h-1 w-12 bg-deep-ink opacity-20"></div>
+                        </header>
+                        <p class="font-body-md text-on-surface-variant text-lg leading-relaxed opacity-80 line-clamp-4">
+                            ${project.desc}
+                        </p>
+                        <footer class="mt-auto flex justify-between items-center">
+                            <span class="font-label-caps text-label-caps uppercase text-on-primary-container">${project.category}</span>
+                            <span class="material-symbols-outlined transition-transform text-3xl flip-trigger" data-icon="arrow_right_alt">arrow_right_alt</span>
+                        </footer>
+                    </div>
+                </div>
+                <!-- Back Side -->
+                <div class="card-face card-back p-10 flex flex-col border border-on-primary/5">
+                    <div class="flex flex-col h-full justify-center items-center gap-10 text-deep-ink">
+                        <h3 class="font-action text-2xl font-bold tracking-tight text-center uppercase">Explore Project</h3>
+                        <div class="flex flex-col gap-4 w-full items-center">
+                            <button class="w-full bg-deep-ink text-white py-5 font-action hover:opacity-90 transition-all uppercase tracking-widest text-xs flex items-center justify-center gap-3">
+                                Visit Live Site <span class="material-symbols-outlined text-base">open_in_new</span>
+                            </button>
+                            <a href="#" class="w-full border border-deep-ink/10 flex items-center justify-center gap-3 py-5 hover:bg-deep-ink/5 transition-all">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                                <span class="font-action text-xs tracking-widest uppercase">GitHub Repo</span>
+                            </a>
+                        </div>
+                        <button class="mt-4 text-on-surface-variant hover:underline font-action text-[10px] tracking-widest uppercase flex items-center gap-2 flip-back-btn">
+                            <span class="material-symbols-outlined text-sm">undo</span> BACK TO INFO
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        const inner = cardWrapper.querySelector('.card-inner');
+        const backBtn = cardWrapper.querySelector('.flip-back-btn');
+
+        // Main click handler for the whole card to flip it
+        cardWrapper.addEventListener('click', (e) => {
+            // Block flip if we're dragging the carousel
+            if (isDragging) return;
+            
+            // Check if user clicked the "Back to Info", a link, or a button on the back
+            // so we don't accidentally double-flip if propagation isn't handled.
+            if (e.target.closest('a') || e.target.closest('button')) return; // Allow links and buttons to function
+
+            inner.classList.toggle('is-flipped');
+        });
+
+        // Specific handling for "Back to Info" so it's clear
+        backBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            inner.classList.remove('is-flipped');
+        });
+
+        // Double click/tap to center the card
+        const centerCard = () => {
+            carousel.style.animationPlayState = 'paused';
+            const trackWidth = scrollContainer.offsetWidth;
+            const cardLeft = cardWrapper.offsetLeft;
+            const cardWidth = cardWrapper.offsetWidth;
+            const targetScrollLeft = cardLeft - (trackWidth / 2) + (cardWidth / 2);
+            
+            scrollContainer.scrollTo({
+                left: targetScrollLeft,
+                behavior: 'smooth'
+            });
+            setTimeout(() => {
+                if (!isHovering) carousel.style.animationPlayState = 'running';
+            }, 3000);
+        };
+
+        cardWrapper.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
+            centerCard();
+        });
+
+        let lastTap = 0;
+        cardWrapper.addEventListener('touchstart', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 300 && tapLength > 0) {
+                e.stopPropagation();
+                centerCard();
+            }
+            lastTap = currentTime;
+        }, { passive: true });
+
+        return cardWrapper;
+    }
+
+    // Double the projects for infinite loop visual
+    const allCards = [...projectData, ...projectData];
+    allCards.forEach(proj => {
+        carousel.appendChild(createCard(proj));
+    });
+
+    const scrollTrack = document.getElementById('project-carousel');
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const cardWidthWithGap = 448 + 32;
+
+    // Manual navigation buttons
+    nextBtn.addEventListener('click', () => {
+        scrollTrack.style.animationPlayState = 'paused';
+        scrollContainer.scrollBy({ left: cardWidthWithGap, behavior: 'smooth' });
+        setTimeout(() => { if (!isHovering) scrollTrack.style.animationPlayState = 'running'; }, 3000);
+    });
+
+    prevBtn.addEventListener('click', () => {
+        scrollTrack.style.animationPlayState = 'paused';
+        scrollContainer.scrollBy({ left: -cardWidthWithGap, behavior: 'smooth' });
+        setTimeout(() => { if (!isHovering) scrollTrack.style.animationPlayState = 'running'; }, 3000);
+    });
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            scrollTrack.style.animationPlayState = 'paused';
+            scrollContainer.scrollBy({ left: cardWidthWithGap, behavior: 'smooth' });
+            setTimeout(() => { if (!isHovering) scrollTrack.style.animationPlayState = 'running'; }, 3000);
+        } else if (e.key === 'ArrowLeft') {
+            scrollTrack.style.animationPlayState = 'paused';
+            scrollContainer.scrollBy({ left: -cardWidthWithGap, behavior: 'smooth' });
+            setTimeout(() => { if (!isHovering) scrollTrack.style.animationPlayState = 'running'; }, 3000);
+        }
+    });
+
+    // Handle Infinite Scroll Visual Loop
+    scrollContainer.addEventListener('scroll', () => {
+        if (scrollContainer.scrollLeft >= (scrollContainer.scrollWidth / 2) - 10) {
+            scrollContainer.scrollLeft = 0;
+        } else if (scrollContainer.scrollLeft <= 0) {
+            scrollContainer.scrollLeft = (scrollContainer.scrollWidth / 2) - 10;
+        }
+    });
+
+    // Pause on Hover
+    let isHovering = false;
+    scrollTrack.addEventListener('mouseenter', () => {
+        isHovering = true;
+        scrollTrack.style.animationPlayState = 'paused';
+    });
+    scrollTrack.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (!isDragging) scrollTrack.style.animationPlayState = 'running';
+    });
+
+    // Drag-to-Scroll Functionality
+    let isMouseDown = false;
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+
+    scrollTrack.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        isDragging = false;
+        scrollTrack.classList.add('is-dragging');
+        scrollTrack.style.animationPlayState = 'paused';
+        startX = e.pageX - scrollContainer.offsetLeft;
+        scrollLeft = scrollContainer.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+        isMouseDown = false;
+        scrollTrack.classList.remove('is-dragging');
+        if (!isHovering) {
+            scrollTrack.style.animationPlayState = 'running';
+        }
+    });
+
+    scrollTrack.addEventListener('mousemove', (e) => {
+        if (!isMouseDown) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainer.offsetLeft;
+        const walk = (x - startX) * 2; // scroll-fast multiplier
+        
+        // If moved more than 5px, it's a drag
+        if (Math.abs(x - startX) > 5) {
+            isDragging = true;
+        }
+        
+        scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    // Mobile Swipe (Standard Touch behavior is already smooth with scroll-snap)
+    scrollContainer.addEventListener('touchstart', () => {
+        scrollTrack.style.animationPlayState = 'paused';
+    });
+    scrollContainer.addEventListener('touchend', () => {
+        if (!isHovering) scrollTrack.style.animationPlayState = 'running';
+    });
+
+</script>
+
+
+</body></html>
